@@ -26,9 +26,9 @@ module.exports = function (app) {
          var noteData = JSON.parse(data)
        // adding ID to each note when recorded
          noteData.push(newNote);
-         noteDatae.forEach((item, i) => item.id = i + 1);
+         noteData.forEach((item, i) => item.id = i + 1);
          console.log(noteData);
-
+       // using JSON stringify to return obect into a string.
          fs.writeFile("db/db.json", JSON.stringify(noteData), "utf8", function (err) {
             if (err) throw err
             console.log("Finished writing file")
