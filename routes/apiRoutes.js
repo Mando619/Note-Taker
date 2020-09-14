@@ -25,7 +25,7 @@ module.exports = function (app) {
          if (err) throw err
          var noteData = JSON.parse(data)
        // adding ID to each note when recorded
-         noteData.push(newNote);
+         noteData.push(newNotes);
          noteData.forEach((item, i) => item.id = i + 1);
          console.log(noteData);
        // using JSON stringify to return obect into a string.
@@ -36,3 +36,5 @@ module.exports = function (app) {
       })
    });
 };
+
+// Next is to work on deleting. Delete by using Id. use param 
