@@ -13,10 +13,6 @@ module.exports = function (app) {
       })
    });
 
-   app.get('*', function (req, res) {
-      res.sendFile(path.join(__dirname, "public/index.html"));
-   });
-
    app.post("/api/notes/", function (req, res) {
       var newNotes = req.body
       console.log(newNotes)
@@ -38,3 +34,4 @@ module.exports = function (app) {
 };
 
 // Next is to work on deleting. Delete by using Id. use param 
+
