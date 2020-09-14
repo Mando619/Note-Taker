@@ -24,12 +24,12 @@ module.exports = function (app) {
          console.log(newNotes)
          if (err) throw err
          var noteData = JSON.parse(data)
-         // adding ID to each not when recorded
+       // adding ID to each note when recorded
          noteData.push(newNote);
          noteDatae.forEach((item, i) => item.id = i + 1);
          console.log(noteData);
 
-         fs.writeFile("db/db.json", JSON.stringify(noteDatae), "utf8", function (err) {
+         fs.writeFile("db/db.json", JSON.stringify(noteData), "utf8", function (err) {
             if (err) throw err
             console.log("Finished writing file")
          })
