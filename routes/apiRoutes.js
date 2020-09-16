@@ -1,5 +1,5 @@
 
-
+const fs = require("fs");
 
 
 module.exports = function (app) {
@@ -14,12 +14,10 @@ module.exports = function (app) {
    });
 
    app.post("/api/notes/", function (req, res) {
-      var newNotes = req.body
+      const newNotes = req.body
       console.log(newNotes)
       fs.readFile("db/db.json", "utf8", function (err, data) {
-         console.log(newNotes)
-         if (err) throw err
-         var noteData = JSON.parse(data)
+         const noteData = JSON.parse(data)
        // adding ID to each note when recorded
          noteData.push(newNotes);
          noteData.forEach((item, i) => item.id = i + 1);
@@ -33,11 +31,27 @@ module.exports = function (app) {
    });
 
    app.delete("/api/notes/:id", function(req, res) {
-      var deleteNote = req.params.id;
+      const noteId = req.params.id;
+      fs.readFile("db/db.json", "utf8", function(err, data) {
+         if (err) throw err
+         console.log(noteId)
 
-      console.log(deleteNote);
-   })
-};
-
+         const deleteNote = JSON.parse(data)
+            console.log(deleteNote)
+         // going through elements. using parceInt to return an integer id. then splice to return removed item
+            deleteNote.forEach((element, index) => {
+               if(parseInt(element.id) === parseInt(noteId)) {
+                  deleteNote.splice(index, 1);
+               }
+            });
+            
+            const noteString = JSON.stringify(deleteNote);
+            fs.writeFile("db/db.json", noteString, function(err, data){
+               if (err) throw err
+               res.send(JSON.parse(noteString));
+            })
+      })
+   });
+}
 // Next is to work on deleting. Delete by using Id. use param 
       
