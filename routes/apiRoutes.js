@@ -31,7 +31,13 @@ module.exports = function (app) {
          })
       })
    });
+
+   app.delete("/api/notes/:id", function(req, res) {
+      var deleteNote = req.params.id;
+
+      console.log(deleteNote);
+   })
 };
 
 // Next is to work on deleting. Delete by using Id. use param 
-
+      
