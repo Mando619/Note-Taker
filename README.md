@@ -18,6 +18,7 @@ This application was created to help take notes and store. Using node.js and npm
 * [Usage](#usage)
 * [License](#license)
 * [Tests](#test)
+* [Credits](#credits)
 * [Questions](#questions)
 
 
@@ -36,6 +37,13 @@ Project deployed through Heroku for functionality
 ## Tests
 
 No tests required.
+
+## Credits
+
+Thanks to these guys for always being ahead of the game and answering questions.
+
+* [Plover Brown](https://github.com/rebgrasshopper)
+* [Clyde Baron](https://github.com/clydebaron2000)
 
 ## Questions
 
